@@ -28,3 +28,8 @@ function pintarTablaIzquierda() {
 
     tabla.innerHTML = contenido;
 }
+
+function eliminarIzquierdo(indice) {
+    edadesIzquierdo.splice(indice, 1);
+    pintarTablaIzquierda();
+}
