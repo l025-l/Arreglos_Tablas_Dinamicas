@@ -22,7 +22,7 @@ function pintarTablaIzquierda() {
         contenido += "<td>" + edadesIzquierdo[i] + "</td>";
 
         contenido += "<td><button class='btn-eliminar' onclick='eliminarIzquierdo(" + i + ")'>Eliminar</button></td>";
-        contenido += "<td><button class='btn-mover' onclick='moverDerecha(" + i + ")'>➜</button></td>";
+        contenido += "<td><button class='btn-mover' onclick='moverHaciaDerecha(" + i + ")'>➜</button></td>";
         contenido += "</tr>";
     }
 
@@ -41,7 +41,7 @@ function pintarTablaDerecha() {
     for (let i = 0; i < edadesDerecha.length; i++) {
         contenido += "<tr>";
 
-        contenido += "<td><button class='btn-mover' onclick='moverIzquierda(" + i + ")'>⬅</button></td>";
+        contenido += "<td><button class='btn-mover' onclick='moverHaciaIzquierda(" + i + ")'>⬅</button></td>";
         contenido += "<td>" + edadesDerecha[i] + "</td>";
         contenido += "<td><button class='btn-eliminar' onclick='eliminarDerecho(" + i + ")'>Eliminar</button></td>";
         contenido += "</tr>";
@@ -66,3 +66,13 @@ function moverHaciaDerecha(indice) {
     pintarTablaDerecha();
 }
 
+function moverHaciaIzquierda(indice) {
+    let edadAMover = edadesDerecha[indice];
+
+    edadesIzquierdo.push(edadAMover);
+
+    edadesDerecha.splice(indice, 1);
+
+    pintarTablaIzquierda();
+    pintarTablaDerecha();
+}
